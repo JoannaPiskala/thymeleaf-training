@@ -1,0 +1,18 @@
+<!-- trzeba podac w jakiej przestrzeni xmlns sie poruszmy/ poslugujemy:
+w tym przykladzie chcemy uzywac thymeleaf -->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Kurs Thymeleaf</h1>
+<p>Hello World!</p>
+<p th:text="${name}"></p>
+<p th:text="${car.getMark()}"></p>
+<p th:text="${car.getModel()}"></p>
+
+</body>
+</html>
