@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Update car</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+<body>
+    <div>
+        <form action="#"
+              th:action="@{/update/{id}(id=${car.get().id})}"
+              th:object="${car}"
+              method="post">
+            <p><label for="mark">MARK: </label>
+            <input type="text" th:field="*{mark}" id="mark" placeholder="Mark">
+            <span th:if="${#fields.hasErrors('mark')}" th:errors="*{mark}"></span></p>
+            <p><label for="model">MODEL: </label>
+            <input type="text" th:field="*{model}" id="model" placeholder="Model">
+                <span th:if="${#fields.hasErrors('model')}" th:errors="*{model}"></span></p>
+            <p><input type="submit" value="Update Car"></p>
+        </form>
+    </div>
+</body>
+</html>

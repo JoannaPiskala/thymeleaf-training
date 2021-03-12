@@ -37,6 +37,7 @@ public class CarController {
     public String addCar(@ModelAttribute Car car) {
         carService.addCar(car);
         return "redirect:/cars";
+
     }
 
 
