@@ -3,6 +3,8 @@ package com.joannap.thymeleafhelloworld.controller;
 import com.joannap.thymeleafhelloworld.model.Car;
 import com.joannap.thymeleafhelloworld.service.CarService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -32,12 +34,22 @@ public class CarController {
         return "index";
     }
 
-
+/*
     @PostMapping("/add-car")
     public String addCar(@ModelAttribute Car car) {
         carService.addCar(car);
         return "redirect:/cars";
+    }
 
+ */
+
+    @PostMapping("/add-car")
+    public String addCar(@ModelAttribute Car car) {
+        Optional<Car> carToAdd = carService.addCar(car);
+        if (carToAdd.isPresent()) {
+            return "redirect:/cars";
+        }
+        return "Type car mark and model";
     }
 
 
